@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<title>styles</title>
+<meta charset="utf‐8">
+<link rel="stylesheet" href="./assets/domtp.css">
+</head>
+<body>
+<p id="parag1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.
+</p>
+<button onclick="changerStyle()">Changer Style</button>
+<button onclick="changerStyleClass()">Changer Style par une classe</button>
+<div id="attributes"></div>
+<p><a id="w3r" type="text/html" hreflang="en‐us" rel="nofollow" target="_self"
+    href="https://www.w3resource.com/">w3resource</a></p>
+    <button onclick="getAttributes()">Click here to get attributes value</button>
+    <form id="form1" onsubmit="getFormvalue();return false">
+        First name: <input type="text" name="fname" value="David"><br>
+        Last name: <input type="text" name="lname" value="Beckham"><br>
+        <input type="submit"  value="Submit">
+    </form>
+<script>
+function changerStyle(){
+    var x = document.getElementById('parag1');x
+    x.style.color="white";
+    x.style.backgroundColor = "black";
+    x.style.border = "1px dashed rgb(223, 9, 9)";
+    x.style.padding = "5px";
+}
+function changerStyleClass(){
+    var x = document.getElementById('parag1');x
+    x.className = "active";
+}
+function getAttributes() {
+    var x = document.getElementById("w3r");
+    var tag, text;
+    var blocdiv = document.getElementById("attributes"); 
+    var tabAtt = ['href', 'hreflang', 'rel', 'target'];
+    for (let att of tabAtt){
+        tag = document.createElement("p");
+     text = document.createTextNode(x.getAttribute(att));
+     tag.appendChild(text);
+     blocdiv.appendChild(tag);
+    }
+}
+
+function getFormvalue() {
+
+    var prenom = document.querySelector('[name="fname"]').value;
+    var nom = document.querySelector('[name="lname"]').value;
+    var tag, text;
+    var blocdiv = document.getElementById("attributes"); 
+    tag = document.createElement("p");
+    text = document.createTextNode(prenom+" "+nom);
+    tag.appendChild(text);
+    blocdiv.appendChild(tag);
+}
+</script>
+</body>
